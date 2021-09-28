@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Whac_A_Mole</string>
+    <string name="Play">PLAY</string>
+    <string name="your_score">Your Score : %d</string>
+    <string name="level">Level %d</string>
+    <string name="START">START</string>
+</resources>
