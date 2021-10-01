@@ -3,7 +3,11 @@ package com.example.whac_a_mole;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,8 +15,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     private Field field;
     private TextView tvLevel;
-    private TextView tvScore;
+    private TextView tvScore, tvTime;
     private Button btnStart;
+    CountDownTimer countDownTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,15 +27,42 @@ public class MainActivity extends AppCompatActivity {
         tvLevel = findViewById(R.id.tvLevel);
         btnStart = findViewById(R.id.btnStart);
         tvScore = findViewById(R.id.tvScore);
+        tvTime = findViewById(R.id.tvTime);
 
         setEventListeners();
     }
+
+    void setTimer(){
+       countDownTimer = new CountDownTimer(30000, 1000) {
+
+
+            public void onTick(long millisUntilFinished) {
+
+                tvTime.setText(getString(R.string.Left) + " "
+                                        + millisUntilFinished / 1000 + " " + "ms");
+            }
+
+            public void onFinish() {
+                countDownTimer.cancel();
+               newActivity(getApplicationContext(),LastActivity.class);
+            }
+        }
+                .start();
+    }
+
+    void newActivity(Context context, Class activity){
+        Intent intent = new Intent(context, activity);
+        startActivity(intent);
+    }
+
+
 
     void setEventListeners() {
         btnStart.setOnClickListener(view -> {
             btnStart.setVisibility(View.GONE);
         tvScore.setVisibility(View.GONE);
         field.startGame();
+            setTimer();
         });
 
         field.setListener(listener);
@@ -44,8 +76,11 @@ public class MainActivity extends AppCompatActivity {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    btnStart.setVisibility(View.VISIBLE);
-                    showScore(score);
+                    countDownTimer.cancel();
+                    newActivity(getApplicationContext(),LastActivity.class);
+//                    btnStart.setVisibility(View.VISIBLE);
+//                    showScore(score);
+
                 }
             });
         }

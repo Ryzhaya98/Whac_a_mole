@@ -4,4 +4,7 @@
     <string name="your_score">Your Score : %d</string>
     <string name="level">Level %d</string>
     <string name="START">START</string>
+    <string name="Time">TIME</string>
+    <string name="Left">Left</string>
+
 </resources>

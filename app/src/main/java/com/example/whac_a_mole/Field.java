@@ -1,6 +1,7 @@
 package com.example.whac_a_mole;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
@@ -16,6 +17,8 @@ public class Field extends LinearLayout {
     private final SquareButton[] circles = new SquareButton[9];
     private int currentCircle;
     private Listener listener;
+    MainActivity mainActivity;
+
 
     private int score;
     private Mole mole;
@@ -72,6 +75,7 @@ public class Field extends LinearLayout {
     public void startGame() {
         isInGameSession = true;
         lastClickedButton = null;
+        mainActivity = new MainActivity();
 
         resetScore();
         resetCircles();
@@ -87,6 +91,7 @@ public class Field extends LinearLayout {
                         score += mole.getCurrentLevel();
                         listener.updateScore(score);
                     } else {
+
                         endGame();
                         squareButton.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.orange_oval));
                     }
@@ -98,10 +103,13 @@ public class Field extends LinearLayout {
         mole.startHopping();
     }
 
-    private void endGame() {
+    public void endGame() {
         isInGameSession = false;
         mole.stopHopping();
         listener.onGameEnded(score);
+
+
+
     }
 
     public int getCurrentCircle() {

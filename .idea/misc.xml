@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Walle/AndroidStudioProjects/Whac_A_Mole/app/src/main/res/drawable/hole_active.xml" value="0.2703125" />
+        <entry key="..\:/Users/Walle/AndroidStudioProjects/Whac_A_Mole/app/src/main/res/drawable/orange_oval.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/Walle/AndroidStudioProjects/Whac_A_Mole/app/src/main/res/drawable/start_button.xml" value="0.2703125" />
         <entry key="..\:/Users/Walle/AndroidStudioProjects/Whac_A_Mole/app/src/main/res/layout/activity_main.xml" value="0.144" />
         <entry key="..\:/Users/Walle/AndroidStudioProjects/Whac_A_Mole/app/src/main/res/layout/activity_start.xml" value="0.19157608695652173" />
+        <entry key="..\:/Users/Walle/AndroidStudioProjects/Whac_A_Mole/app/src/main/res/layout/last_activity.xml" value="0.203125" />
         <entry key="..\:/Users/Walle/AndroidStudioProjects/Whac_A_Mole/app/src/main/res/layout/view_field.xml" value="0.24456521739130435" />
       </map>
     </option>
