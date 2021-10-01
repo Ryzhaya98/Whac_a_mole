@@ -16,6 +16,7 @@ public class LastActivity extends AppCompatActivity {
     TextView tvScore;
     String string_score;
     Bundle arguments;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
