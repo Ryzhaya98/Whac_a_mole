@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@drawable/fon">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/tvScore"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"/>
+    <Button
+        android:id="@+id/btn_replay"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/start_button"
+        android:text="@string/Replay"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"/>
+    <Button
+        android:id="@+id/btn_menu"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/start_button"
+        android:text="@string/menu"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:layout_marginTop="20dp"/>
+</LinearLayout>
+
+
+
+
+
+</LinearLayout>

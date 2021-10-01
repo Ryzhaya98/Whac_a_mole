@@ -8,9 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.logging.Handler;
 
 public class MainActivity extends AppCompatActivity {
     private Field field;
@@ -18,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView tvScore, tvTime;
     private Button btnStart;
     CountDownTimer countDownTimer;
+    String str_score;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,8 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
     void newActivity(Context context, Class activity){
         Intent intent = new Intent(context, activity);
+        intent.putExtra("score", str_score);
         startActivity(intent);
+
     }
+
+
 
 
 
@@ -77,9 +86,10 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     countDownTimer.cancel();
-                    newActivity(getApplicationContext(),LastActivity.class);
-//                    btnStart.setVisibility(View.VISIBLE);
-//                    showScore(score);
+                    showScore(score);
+                 newActivity(getApplicationContext(),LastActivity.class);
+                    //btnStart.setVisibility(View.VISIBLE);
+                    //showScore(score);
 
                 }
             });
@@ -96,10 +106,13 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    private void showScore(int score) {
+    public void showScore(int score) {
         if (tvScore.getVisibility() != View.VISIBLE) {
             tvScore.setVisibility(View.VISIBLE);
         }
-        tvScore.setText(getString(R.string.your_score, score));
+        tvScore.setText(String.format(getString(R.string.your_score), score));
+        str_score = tvScore.getText().toString();
+        Log.d("DEBUG", str_score);
     }
+
 }
