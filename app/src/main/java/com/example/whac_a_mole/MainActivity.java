@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         tvScore.setText(String.format(getString(R.string.your_score), score));
         str_score = tvScore.getText().toString();
         Log.d("DEBUG", str_score);
+        
     }
 
 }
